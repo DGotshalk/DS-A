@@ -182,7 +182,7 @@ void Singly_Linked_List<T>::Reverse(){
                 current = next;
        }
         head = prev;
-}
+};
 
 template <class T>
 bool Singly_Linked_List<T>::Remove_value(T value){
@@ -213,4 +213,22 @@ bool Singly_Linked_List<T>::Remove_value(T value){
                 }
         }
         return false;
-}
+};
+
+template <class T>
+Singly_Linked_List<T>::~Singly_Linked_List(){
+        if (head == nullptr){
+                return;
+        }
+        else {
+				Node<T>* iter = head;
+				Node<T>* prev;
+				while(iter->next != nullptr){
+						prev = iter;
+						iter = iter->next;
+						delete prev;	
+				}
+				delete iter;
+        }
+
+};
